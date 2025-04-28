@@ -3,10 +3,10 @@ using System.Diagnostics;
 
 class Questions
 {
-    // Einziges Random-Objekt auf Klassenebene
+    
     private static readonly Random rand = new Random();
     
-    // Konfigurierbares Zeitlimit (in Sekunden) je nach Schwierigkeitsgrad
+    
     private static int GetTimeLimit(string difficulty)
     {
         switch (difficulty)
@@ -46,7 +46,7 @@ class Questions
                 break;
             case 2:
                 operation = '-';
-                // Bei Subtraktion sicherstellen, dass das Ergebnis nicht negativ wird
+                
                 if (num1 < num2)
                 {
                     int temp = num1;
@@ -57,22 +57,22 @@ class Questions
                 break;
             case 3:
                 operation = '*';
-                // Bei Multiplikation kleinere Zahlen verwenden, um das Ergebnis überschaubar zu halten
+                
                 num1 = rand.Next(rangeMin, Math.Min(rangeMax, 12) + 1);
                 num2 = rand.Next(rangeMin, Math.Min(rangeMax, 12) + 1);
                 answer = num1 * num2;
                 break;
             case 4:
                 operation = '/';
-                // Für Division: Zuerst num2 wählen (nicht 0)
+                
                 num2 = rand.Next(1, Math.Min(rangeMax / 2, 10) + 1);
-                // Dann num1 so wählen, dass es durch num2 teilbar ist
+                
                 num1 = num2 * rand.Next(1, rangeMax / num2 + 1);
                 answer = num1 / num2;
                 break;    
         }
 
-        Console.WriteLine($"What is {num1} {operation} {num2}? (Zeit: {timeLimit} Sekunden)");
+        Console.WriteLine($"What is {num1} {operation} {num2}? (Time: {timeLimit} seconds)");
 
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -84,16 +84,16 @@ class Questions
         
         if(elapsedSeconds > timeLimit)
         {
-            Console.WriteLine($"Time is up! Du hast {elapsedSeconds:F1} Sekunden gebraucht (Limit: {timeLimit} Sekunden)");
+            Console.WriteLine($"Time is up! It took you {elapsedSeconds:F1} seconds!  (Limit: {timeLimit} seconds)");
             return false;
         }
 
         if(int.TryParse(userInput, out int userAnswer) && userAnswer == answer)
         {
-            Console.WriteLine($"Richtig! Du hast {elapsedSeconds:F1} Sekunden gebraucht.");
+            Console.WriteLine($"Correct! Your time: {elapsedSeconds:F1} seconds.");
             return true;
         }
-        Console.WriteLine($"Falsch! Die richtige Antwort wäre {answer} gewesen.");
+        Console.WriteLine($"Wrong! Correct answer: {answer} ");
         return false;
     }
 }
