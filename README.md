@@ -35,4 +35,12 @@ Features:
 - **Question.cs**: Erzeugung und Abfrage einzelner Matheaufgaben
 - **HighscoreManager.cs**: Verwaltung von Highscores
 
+---
 
+## Quellenangabe
+
+- Microsoft C# Dokumentation
+- System.Console Dokumentation
+- System.Diagnostics.Stopwatch
+- Chat GPT
+- Youtube
