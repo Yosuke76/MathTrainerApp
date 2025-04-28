@@ -24,6 +24,6 @@ class HighscoreManager
 
     public static void SaveHighscore(int score, double time)
     {
-        File.WriteAllLines(filename, new[] {score.ToString(), time.ToString()});
+        File.WriteAllLines(filename, new[] {score.ToString(), time.ToString()}); // speichert Highscore
     }
 }

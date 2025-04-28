@@ -4,7 +4,7 @@ using System.Diagnostics;
 class Questions
 {
     
-    private static readonly Random rand = new Random();
+    private static readonly Random rand = new Random();   // !!!!!
     
     
     private static int GetTimeLimit(string difficulty)
@@ -59,7 +59,7 @@ class Questions
                 operation = '*';
                 
                 num1 = rand.Next(rangeMin, Math.Min(rangeMax, 12) + 1);
-                num2 = rand.Next(rangeMin, Math.Min(rangeMax, 12) + 1);
+                num2 = rand.Next(rangeMin, Math.Min(rangeMax, 12) + 1);  // !!!
                 answer = num1 * num2;
                 break;
             case 4:
@@ -67,7 +67,7 @@ class Questions
                 
                 num2 = rand.Next(1, Math.Min(rangeMax / 2, 10) + 1);
                 
-                num1 = num2 * rand.Next(1, rangeMax / num2 + 1);
+                num1 = num2 * rand.Next(1, rangeMax / num2 + 1);     // !!!!!!!!!
                 answer = num1 / num2;
                 break;    
         }
@@ -80,7 +80,7 @@ class Questions
         string userInput = Console.ReadLine();
         stopwatch.Stop();
 
-        double elapsedSeconds = stopwatch.Elapsed.TotalSeconds;
+        double elapsedSeconds = stopwatch.Elapsed.TotalSeconds;   //!!!!!
         
         if(elapsedSeconds > timeLimit)
         {
@@ -90,10 +90,10 @@ class Questions
 
         if(int.TryParse(userInput, out int userAnswer) && userAnswer == answer)
         {
-            Console.WriteLine($"Correct! Your time: {elapsedSeconds:F1} seconds.");
+            Console.WriteLine($"Your time: {elapsedSeconds:F1} seconds.");
             return true;
         }
-        Console.WriteLine($"Wrong! Correct answer: {answer} ");
+        Console.WriteLine($"Correct answer: {answer} ");
         return false;
     }
 }

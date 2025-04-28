@@ -24,7 +24,13 @@ public class MathTrainer
 
          Console.WriteLine("How many questions do you want to answer?");
 
-         int.TryParse(Console.ReadLine(), out numQuestions);
+         
+         bool correctInput = int.TryParse(Console.ReadLine(), out numQuestions);
+         while(!correctInput)
+         {
+            correctInput = int.TryParse(Console.ReadLine(), out numQuestions);
+         }
+
 
          Stopwatch totalTimer = new Stopwatch();
          totalTimer.Start();
